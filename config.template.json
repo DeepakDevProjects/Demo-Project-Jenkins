@@ -1,0 +1,22 @@
+{
+  "jenkins": {
+    "url": "http://localhost:8080",
+    "jobName": "alphabetical-counting-pipeline",
+    "username": "your-jenkins-username",
+    "apiToken": "your-jenkins-api-token"
+  },
+  "googleSheets": {
+    "spreadsheetId": "your-spreadsheet-id",
+    "serviceAccountEmail": "your-service-account@project.iam.gserviceaccount.com",
+    "credentialsFile": "path/to/service-account-key.json"
+  },
+  "github": {
+    "repository": "your-username/demo-project-jenkins",
+    "branch": "main"
+  },
+  "counting": {
+    "startNumber": 1,
+    "endNumber": 100,
+    "outputRange": "A1:B100"
+  }
+}

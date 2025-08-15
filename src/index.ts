@@ -58,7 +58,7 @@ async function main(): Promise<void> {
     });
     
     // Check if we have Google Sheets credentials
-    const spreadsheetId = process.env.SPREADSHEET_ID;
+    const spreadsheetId = process.env.SPREADSHEET_ID || '13zbniVZQlUYMQQDnNPLqjX7VcrTmVBZ7PL4HWX8BX0s';
     const googleCredentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
     
     if (spreadsheetId && googleCredentialsPath) {

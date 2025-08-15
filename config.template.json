@@ -1,17 +1,17 @@
 {
   "jenkins": {
-    "url": "http://localhost:8080",
+    "url": "https://690ca3bc947c.ngrok-free.app",
     "jobName": "alphabetical-counting-pipeline",
-    "username": "your-jenkins-username",
-    "apiToken": "your-jenkins-api-token"
+    "username": "admin",
+    "apiToken": "117c34f2adad6b69bd4e7dee940d0e469d"
   },
   "googleSheets": {
-    "spreadsheetId": "your-spreadsheet-id",
-    "serviceAccountEmail": "your-service-account@project.iam.gserviceaccount.com",
+  "spreadsheetId": "13zbniVZQlUYMQQDnNPLqjX7VcrTmVBZ7PL4HWX8BX0s",
+    "serviceAccountEmail": "jenkins-sheets-automation@alpha-counting-project-jenkins.iam.gserviceaccount.com",
     "credentialsFile": "path/to/service-account-key.json"
   },
   "github": {
-    "repository": "your-username/demo-project-jenkins",
+    "repository": "https://github.com/DeepakDevProjects/Demo-Project-Jenkins",
     "branch": "main"
   },
   "counting": {

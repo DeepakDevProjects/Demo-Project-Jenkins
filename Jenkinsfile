@@ -3,8 +3,9 @@ pipeline {
     
     environment {
         NODE_VERSION = '18'
-        GITHUB_REPO = 'YOUR_GITHUB_USERNAME/demo-project-jenkins'
-        SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID'
+        // https://github.com/DeepakDevProjects/Demo-Project-Jenkins
+        GITHUB_REPO = 'DeepakDevProjects/Demo-Project-Jenkins'
+        SPREADSHEET_ID = '13zbniVZQlUYMQQDnNPLqjX7VcrTmVBZ7PL4HWX8BX0s'
         GOOGLE_CREDENTIALS = credentials('google-sheets-credentials')
     }
     

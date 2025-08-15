@@ -18,19 +18,29 @@ pipeline {
         }
         
         stage('Setup Node.js') {
-            steps {
-                echo 'Setting up Node.js environment...'
-                sh '''
-                    # Install Node.js if not available
-                    if ! command -v node &> /dev/null; then
-                        echo "Installing Node.js..."
-                        curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | sudo -E bash -
-                        sudo apt-get install -y nodejs
-                    fi
+            // steps {
+            //     echo 'Setting up Node.js environment...'
+            //     sh '''
+            //         # Install Node.js if not available
+            //         if ! command -v node &> /dev/null; then
+            //             echo "Installing Node.js..."
+            //             curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | sudo -E bash -
+            //             sudo apt-get install -y nodejs
+            //         fi
                     
-                    # Check Node.js version
-                    node --version
-                    npm --version
+            //         # Check Node.js version
+            //         node --version
+            //         npm --version
+            //     '''
+            // }
+            steps {
+                sh '''
+                    export NVM_DIR="$HOME/.nvm"
+                    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                    nvm install 18
+                    nvm use 18
+                    node -v
+                    npm -v
                 '''
             }
         }

@@ -50,26 +50,59 @@ pipeline {
 
         
         stage('Install Dependencies') {
+            // steps {
+            //     echo 'Installing npm dependencies...'
+            //     sh 'npm install'
+            // }
             steps {
                 echo 'Installing npm dependencies...'
-                sh 'npm install'
+                sh '''
+                    export NVM_DIR="$HOME/.nvm"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                    nvm use 18
+                    npm install
+                '''
             }
         }
         
         stage('Build TypeScript') {
+            // steps {
+            //     echo 'Building TypeScript code...'
+            //     sh 'npm run build'
+            // }
             steps {
                 echo 'Building TypeScript code...'
-                sh 'npm run build'
+                sh '''
+                    export NVM_DIR="$HOME/.nvm"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                    nvm use 18
+                    npm run build
+                '''
             }
         }
         
         stage('Run Alphabetical Counter') {
+            // steps {
+            //     echo 'Running alphabetical counting automation...'
+            //     script {
+            //         // Set up Google credentials
+            //         withCredentials([file(credentialsId: 'google-sheets-credentials', variable: 'GOOGLE_CREDS')]) {
+            //             sh '''
+            //                 export GOOGLE_APPLICATION_CREDENTIALS="$GOOGLE_CREDS"
+            //                 export SPREADSHEET_ID="$SPREADSHEET_ID"
+            //                 npm start
+            //             '''
+            //         }
+            //     }
+            // }
             steps {
                 echo 'Running alphabetical counting automation...'
                 script {
-                    // Set up Google credentials
                     withCredentials([file(credentialsId: 'google-sheets-credentials', variable: 'GOOGLE_CREDS')]) {
                         sh '''
+                            export NVM_DIR="$HOME/.nvm"
+                            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                            nvm use 18
                             export GOOGLE_APPLICATION_CREDENTIALS="$GOOGLE_CREDS"
                             export SPREADSHEET_ID="$SPREADSHEET_ID"
                             npm start
